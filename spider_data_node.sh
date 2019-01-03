@@ -11,7 +11,7 @@ done; echo ''
 if [ "$9" == "xfusion_auth_engine" ]
 then
 Array_exist_db=(mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h "$5" -e "show databases;")
-echo "$Array_exist_db" "Rahul Panwar"
+echo "${array_Password[@]}" "Rahul Panwar"
 for ((i=0;i<=${#array_ip[@]}-1;i++)); do
 mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h "$5" -e "show databases;";
 done; echo ''	
