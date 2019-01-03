@@ -11,12 +11,10 @@ done; echo ''
 if [ "$9" == "xfusion_auth_engine" ]
 then
 Array_exist_db=($(mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h "${array_ip[i]}" -Bse "show databases;"))
-if (printf '%s\n' "${Array_exist_db[@]}" | grep -xq ${array_node[i]}); then
-    echo "it's in"
+echo "$Array_exist_db"
 for ((i=0;i<=${#array_ip[@]}-1;i++)); do
 mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h "$5" -e "show databases;";
-done; echo ''
-fi	
+done; echo ''	
 else
   echo "Both strings are different"
 fi
