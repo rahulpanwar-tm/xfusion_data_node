@@ -6,4 +6,8 @@
 
 echo "SERVER_IP"  "USER_NAME"  "Password"  "Port" "Pro_Server"
 # array_ip=($1); array_user=($2); array_Password=($3); array_port=($4); for ((i=0;i<=${#array_ip[@]}-1;i++)); do echo "$i" "${array_ip[i]}" "${array_user[i]}" "${array_Password[i]}" "${array_port[i]}" "$5"; done;echo ''
-array_ip=$1; array_user=$3; array_Password=$2; array_port=$4; for ((i=0;i<=${#array_ip[@]}-1;i++)); do mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h"$5" -e "show databases;"; done;echo ''
+array_ip=$1; array_user=$3; array_Password=$2; array_port=$4; 
+for ((i=0;i<=${#array_ip[@]}-1;i++))
+ do 
+ 	mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h"$5" -e "show databases;";
+  done
