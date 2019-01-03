@@ -4,7 +4,7 @@
 # To declare static Array  
 # sh spider_data_node.sh '192.168.1.122 192.168.1.56 192.168.1.122' 'Ttpl@123 Ttpl@123 Ttpl@123' 'root root root' '3307 3307 3307' '192.168.1.55' 'xfusion_performance_data_node_1 xfusion_performance_data_node_2 xfusion_performance_data_node_1' 'srv_node1 srv_node2 srv_node3' 'Exicom' 'xfusion_auth_engine';
 
-if [ "$9" -eq "xfusion_auth_engine" ]
+if [ "$9" == "xfusion_auth_engine" ]
 then
 echo "ID" "SERVER_IP"  "USER_NAME"  "Password"  "Port" "Pro_Server" "Data_node_name" "Node_server"
 array_ip=($1); array_user=($3); array_Password=($2); array_port=($4); array_node=($6); array_server=($7); 
