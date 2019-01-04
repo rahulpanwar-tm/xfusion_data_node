@@ -29,6 +29,12 @@ if in_array "${array_node[m]}" "${verisoning_table[*]}"
     echo "Data Node" "${array_node[m]}" "allready installed!!"
   else
     echo "Data Node" "${array_node[m]}" "not installed!!"
+# prepare sql script for current node
+cat xfusion_data_node_2019-01-03.sql.sql >> "${array_node[m]}".sql
+# install data node and partition on particular server 
+mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
+# create server on spider node and config server
+mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 fi
 done; echo ''
 for ((j=0;j<=${#array_ip[@]}-1;j++)); do
