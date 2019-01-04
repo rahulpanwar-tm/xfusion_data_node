@@ -23,11 +23,11 @@ function in_array {
   return 1
 }
 verisoning_table=(Thanks to Stephane Chazelas for the original example)
-if in_array "Thanks" "${verisoning_table[*]}"
+if in_array "${array_node[i]}" "${verisoning_table[*]}"
   then
-    echo "Found"
+    echo "Data Node ${array_node[i]} allready installed!!"
   else
-    echo "Not found"
+    echo "Data Node ${array_node[i]} allready installed!!"
 fi
 
 for ((j=0;j<=${#array_ip[@]}-1;j++)); do
