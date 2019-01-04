@@ -22,7 +22,7 @@ function in_array {
   done
   return 1
 }
-verisoning_table=(Thanks to Stephane Chazelas for the original example)
+verisoning_table=(Thanks to Stephane)
 for ((m=0;m<=${#verisoning_table[@]}-1;m++)); do
 if in_array "${array_node[m]}" "${verisoning_table[*]}"
   then
