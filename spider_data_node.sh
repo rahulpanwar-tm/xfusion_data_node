@@ -14,7 +14,7 @@ then
 verisoning_table=(Thanks to Stephane Chazelas for the original example);
 echo "${verisoning_table[@]}";
 echo "${#verisoning_table[@]}";
-if [[ " ${verisoning_table[*]} " == *"${array_node[i]}"* ]];
+if [[ " ${verisoning_table[@]} " == *"${array_node[i]}"* ]];
 then
     echo "YES, your arr contains ${array_node[i]}"
 else
