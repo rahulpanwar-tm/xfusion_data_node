@@ -23,13 +23,14 @@ function in_array {
   return 1
 }
 verisoning_table=(Thanks to Stephane Chazelas for the original example)
+for ((m=0;m<=${#verisoning_table[@]}-1;m++)); do
 if in_array "${array_node[i]}" "${verisoning_table[*]}"
   then
     echo "Data Node ${array_node[i]} allready installed!!"
   else
     echo "Data Node ${array_node[i]} allready installed!!"
 fi
-
+done; echo ''
 for ((j=0;j<=${#array_ip[@]}-1;j++)); do
 mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 done; echo ''	
