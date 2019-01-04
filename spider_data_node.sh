@@ -33,7 +33,7 @@ echo "Data Node" "${array_node[m]}" "not installed!!"
 cat /home/ttpl/.jenkins/workspace/xfusion_data_node/xfusion_data_node_2019-01-03.sql > "${array_node[m]}".sql
 #echo /home/ttpl/.jenkins/workspace/xfusion_data_node/xfusion_data_node_2019-01-03.sql >"${array_node[m]}".sql
 #update script as per current node
-#sed -i "s/xfusion_performance_data_node_1/${array_node[m]}/g" /home/ttpl/.jenkins/workspace/xfusion_data_node/"${array_node[m]}".sql
+sed -i "s/xfusion_performance_data_node_1/${array_node[m]}/g" /home/ttpl/.jenkins/workspace/xfusion_data_node/"${array_node[m]}".sql
 # install data node and partition on particular server 
 mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 # create server on spider node and config server
