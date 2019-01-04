@@ -21,6 +21,14 @@ else
     echo "NO, your arr does not contain ${array_node[i]}"
 fi
 
+my_array=(Drupal Wordpress Joomla)
+if in_array "Drupal" "${my_array[*]}"
+  then
+    echo "Found"
+  else
+    echo "Not found"
+fi
+
 for ((j=0;j<=${#array_ip[@]}-1;j++)); do
 mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 done; echo ''	
