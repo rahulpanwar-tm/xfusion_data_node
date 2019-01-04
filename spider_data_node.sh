@@ -38,11 +38,13 @@ sed -i "s/xfusion_performance_data_node_1/${array_node[m]}/g" /home/ttpl/.jenkin
 mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 # create server on spider node and config server
 mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
+
 fi
 done; echo ''
 for ((j=0;j<=${#array_ip[@]}-1;j++)); do
 mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 done; echo ''	
+
 else
   echo "Both strings are different"
 fi
