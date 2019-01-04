@@ -22,9 +22,8 @@ function in_array {
   done
   return 1
 }
-
 verisoning_table=(Thanks to Stephane Chazelas for the original example)
-if in_array "Drupal" "${verisoning_table[*]}"
+if in_array "Thanks" "${verisoning_table[*]}"
   then
     echo "Found"
   else
