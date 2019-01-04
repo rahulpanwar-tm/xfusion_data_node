@@ -10,13 +10,12 @@ echo "$i" "${array_ip[i]}" "${array_user[i]}" "${array_Password[i]}" "${array_po
 done; echo ''
 if [ "$9" == "xfusion_auth_engine" ]
 then
-	mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h "$5" -e "show databases;"
 verisoning_table=($(mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h "$5" -e "show databases;"))
 echo "${verisoning_table[@]}"
 Array_exist_db=(mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h "$5" -Bse "show databases;")
 echo "${Array_exist_db[@]}" "Rahul Panwar"
-for ((i=0;i<=${#array_ip[@]}-1;i++)); do
-mysql -u"${array_user[i]}" --port "${array_port[i]}"  -p"${array_Password[i]}" -c -h "$5" -e "show databases;";
+for ((j=0;j<=${#array_ip[@]}-1;j++)); do
+mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 done; echo ''	
 else
   echo "Both strings are different"
