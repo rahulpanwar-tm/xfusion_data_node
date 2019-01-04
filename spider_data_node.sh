@@ -13,6 +13,7 @@ then
 #verisoning_table=($(mysql -u${array_user[i]} --port ${array_port[i]}  -p${array_Password[i]} -c -h $5 -BSe "show databases;"))
 verisoning_table='Thanks to Stephane Chazelas for the original example'
 echo "${verisoning_table[@]}"
+echo "${#verisoning_table[@]}"
 if [[ " ${verisoning_table[*]} " == *"${array_node[i]}"* ]];
 then
     echo "YES, your arr contains ${array_node[i]}"
