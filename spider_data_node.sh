@@ -20,6 +20,17 @@ then
 else
     echo "NO, your arr does not contain ${array_node[i]}"
 fi
+function in_array {
+  ARRAY=$2
+  for e in ${ARRAY[*]}
+  do
+    if [[ "$e" == "$1" ]]
+    then
+      return 0
+    fi
+  done
+  return 1
+}
 
 my_array=(Drupal Wordpress Joomla)
 if in_array "Drupal" "${my_array[*]}"
