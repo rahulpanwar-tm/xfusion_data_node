@@ -26,9 +26,9 @@ verisoning_table=(Thanks to Stephane Chazelas for the original example)
 for ((m=0;m<=${#verisoning_table[@]}-1;m++)); do
 if in_array "${array_node[i]}" "${verisoning_table[*]}"
   then
-    echo "Data Node "${array_node[i]}" allready installed!!"
+    echo "Data Node" "${array_node[i]}" "allready installed!!"
   else
-    echo "Data Node "${array_node[i]}" not installed!!"
+    echo "Data Node" "${array_node[i]}" "not installed!!"
 fi
 done; echo ''
 for ((j=0;j<=${#array_ip[@]}-1;j++)); do
