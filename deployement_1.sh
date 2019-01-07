@@ -14,7 +14,7 @@
 #echo "Hello, $PERSON"
 #declare -a Array50
 #Array50=( "key1" "key2" "key3" "key4" "key5" "key6" "key7" "key8" "key9" "key10" )
-
+cat /home/ttpl/.jenkins/workspace/xfusion_data_node/xfusion_data_node_2019-01-03.sql > "${array_node[m]}".sql
 echo "Deployement started for $APPLICATION under $ORGANIZATION"
 
 #declare -a Array1
