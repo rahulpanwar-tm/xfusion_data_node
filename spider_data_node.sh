@@ -38,12 +38,13 @@ sed -i "s/xfusion_performance_data_node_1/${array_node[m]}/g" /home/ttpl/.jenkin
 #mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 # create server on spider node and config server
 #mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
-. ./jenkins_1.sh '$8' '$9' '${array_ip[m]}' '${array_user[m]}' '${array_Password[m]}' '${array_port[m]}' '$10' '$11' '$12'
+
 
 fi
 done; echo ''
 for ((j=0;j<=${#array_ip[@]}-1;j++)); do
-mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
+. ./jenkins_1.sh '$8' '$9' '${array_ip[m]}' '${array_user[m]}' '${array_Password[m]}' '${array_port[m]}' '$10' '$11' '$12'
+# mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 done; echo ''	
 
 else
