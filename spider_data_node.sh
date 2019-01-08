@@ -51,6 +51,10 @@ done; echo ''
 # mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 # done; echo ''
 
+
+if [ "${array_pro[1]}" == "xfusion_spider_platform" ]
+then
+  echo "Hello Patform deployement"
 else
   echo "Both strings are different"
 fi
