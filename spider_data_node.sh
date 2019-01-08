@@ -10,6 +10,13 @@ echo "$i" "${array_ip[i]}" "${array_user[i]}" "${array_Password[i]}" "${array_po
 done; echo ''
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
 then
+
+for filename in $jenkins_path/*.sql; do
+array_exist_script=("${Array1[@]}" "$(basename "$filename")")
+done
+  
+echo "array_exist_script"
+  
 #verisoning_table=($(mysql -u${array_user[i]} --port ${array_port[i]}  -p${array_Password[i]} -c -h $5 -BSe "show databases;"))
 function in_array {
   ARRAY=$2
