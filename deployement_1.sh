@@ -28,7 +28,7 @@ done
 else
    echo 'diployement for diffrent node !!'
 fi
-done; echo ''
+done echo ''
 
 #echo "$items"
 
