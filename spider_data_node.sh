@@ -15,7 +15,7 @@ for filename in $jenkins_path/*.sql; do
 array_exist_script=("${Array1[@]}" "$(basename "$filename")")
 done
   
-echo "array_exist_script"
+echo "array_exist_script : $array_exist_script"
   
 #verisoning_table=($(mysql -u${array_user[i]} --port ${array_port[i]}  -p${array_Password[i]} -c -h $5 -BSe "show databases;"))
 function in_array {
