@@ -6,7 +6,7 @@
 array_ip=($1); array_user=($3); array_Password=($2); array_port=($4); array_node=($6); array_server=($7); 
 echo "ID" "SERVER_IP"  "USER_NAME"  "Password"  "Port" "Pro_Server" "Data_node_name" "Node_server"
 for ((i=0;i<=${#array_ip[@]}-1;i++)); do
-echo "$i" "${array_ip[i]}" "${array_user[i]}" "${array_Password[i]}" "${array_port[i]}" "$5" "${array_node[i]}" "${array_server[i]}" "$8" "$9";
+echo "$i" "${array_ip[i]}" "${array_user[i]}" "${array_Password[i]}" "${array_port[i]}" "$5" "${array_node[i]}" "${array_server[i]}" "$8" "$9" "$10" "$11" "$12";
 done; echo ''
 if [ "$9" == "xfusion_performance_data" ]
 then
