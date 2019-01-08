@@ -17,24 +17,18 @@
 
 echo "Deployement started for $APPLICATION under $ORGANIZATION"
 
+if [ "${array_pro[1]}" == "xfusion_performance_data" ]
+then
+
 #declare -a Array1
 for filename in $jenkins_path/*.sql; do
-#   echo  "$(basename "$filename")"
-#    Array50=$(basename "$filename")
-#    Array1=("${Arry50[@]}" "$filename")
-#file_basename= "$(basename "$filename")" 
-
 Array1=("${Array1[@]}" "$(basename "$filename")")
-
-#temp_file="${filename##*/}"
-
-#echo "${temp_file%.*}"
-#Array1=${Array1[@]} "${temp_file%.*}"
-
-#Array1+=(basename"$filename")
-#Array1=("${Array1[@]}" "$filename")
-
 done
+
+else
+   echo 'diployement for diffrent node !!'
+fi
+done; echo ''
 
 #echo "$items"
 
