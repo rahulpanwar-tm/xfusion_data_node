@@ -20,7 +20,11 @@ echo "Deployement started for $APPLICATION under $ORGANIZATION"
 #declare -a Array1
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
   then
-echo "update_script for data node "
+
+for filename in $jenkins_path/xfusion_performance_data_node_.*; do
+Array1=("${Array1[@]}" "$(basename "$filename")")
+done
+
 else
 
 
