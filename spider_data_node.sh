@@ -38,13 +38,15 @@ sed -i "s/xfusion_performance_data_node_1/${array_node[m]}/g" /home/ttpl/.jenkin
 #mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
 # create server on spider node and config server
 #mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
-for ((j=0;j<=${#array_ip[@]}-1;j++)); do
+echo "$8" "$9" "${array_ip[j]}" "${array_user[j]}" "${array_Password[j]}" "${array_port[j]}" "$10" "$11" "$12"
 . ./jenkins_1.sh "$8" "$9" "${array_ip[j]}" "${array_user[j]}" "${array_Password[j]}" "${array_port[j]}" "$10" "$11" "$12"
-# mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
-done; echo '' 
+ 
 fi
 done; echo ''
-
+# for ((j=0;j<=${#array_ip[@]}-1;j++)); do
+# . ./jenkins_1.sh "$8" "$9" "${array_ip[j]}" "${array_user[j]}" "${array_Password[j]}" "${array_port[j]}" "$10" "$11" "$12"
+# mysql -u"${array_user[j]}" --port "${array_port[j]}"  -p"${array_Password[j]}" -c -h "$5" -e "show databases;";
+# done; echo ''
 
 else
   echo "Both strings are different"
