@@ -26,9 +26,9 @@ Array1=("${Array1[@]}" "$(basename "$filename")")
 done
 
 else
-   echo 'diployement for diffrent node !!'
+   echo "diployement for diffrent node !!"
 fi
-done echo ''
+done 
 
 #echo "$items"
 
