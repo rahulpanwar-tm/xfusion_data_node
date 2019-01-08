@@ -8,7 +8,7 @@ echo "ID" "SERVER_IP"  "USER_NAME"  "Password"  "Port" "Pro_Server" "Data_node_n
 for ((i=0;i<=${#array_ip[@]}-1;i++)); do
 echo "$i" "${array_ip[i]}" "${array_user[i]}" "${array_Password[i]}" "${array_port[i]}" "$5" "${array_node[i]}" "${array_server[i]}" "${array_pro[0]}" "${array_pro[1]}" "${array_pro[2]}" "${array_pro[3]}" "${array_pro[4]}" ;
 done; echo ''
-if [ "$9" == "xfusion_performance_data" ]
+if [ "${array_pro[1]}" == "xfusion_performance_data" ]
 then
 #verisoning_table=($(mysql -u${array_user[i]} --port ${array_port[i]}  -p${array_Password[i]} -c -h $5 -BSe "show databases;"))
 function in_array {
