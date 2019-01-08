@@ -11,7 +11,7 @@ done; echo ''
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
 then
 
-for filename in $jenkins_path/*.sql; do
+for filename in "${array_pro[4]}"/*.sql; do
 array_exist_script=("${Array1[@]}" "$(basename "$filename")")
 done
   
