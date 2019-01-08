@@ -11,11 +11,6 @@ done; echo ''
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
 then
 
-for filename in "${array_pro[4]}"/*.sql; do
-array_exist_script=("${Array1[@]}" "$(basename "$filename")")
-done
-  
-echo "array_exist_script : $array_exist_script"
   
 #verisoning_table=($(mysql -u${array_user[i]} --port ${array_port[i]}  -p${array_Password[i]} -c -h $5 -BSe "show databases;"))
 function in_array {

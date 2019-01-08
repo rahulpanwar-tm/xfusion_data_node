@@ -21,7 +21,7 @@ echo "Deployement started for $APPLICATION under $ORGANIZATION"
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
   then
 
-for filename in $jenkins_path/xfusion_performance_data_node_.*; do
+for filename in $jenkins_path/xfusion_performance_data_node_*.sql; do
 Array1=("${Array1[@]}" "$(basename "$filename")")
 done
 
