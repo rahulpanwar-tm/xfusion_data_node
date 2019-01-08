@@ -23,7 +23,7 @@ then
 #declare -a Array1
 for filename in $jenkins_path/*.sql; do
 Array1=("${Array1[@]}" "$(basename "$filename")")
-done
+
 
 else
    echo "diployement for diffrent node !!"
