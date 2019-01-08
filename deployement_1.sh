@@ -18,9 +18,17 @@
 echo "Deployement started for $APPLICATION under $ORGANIZATION"
 
 #declare -a Array1
+if in_array "${array_node[m]}" "${verisoning_table[*]}"
+  then
+echo "update_script for data node "
+else
+
+
 for filename in $jenkins_path/*.sql; do
 Array1=("${Array1[@]}" "$(basename "$filename")")
 done
+
+fi
 
 #echo "$items"
 
