@@ -33,13 +33,27 @@ Master_PORT="${array_pro[7]}"
 versioning_db="${array_pro[2]}"
 versioning_table="${array_pro[3]}"
 jenkins_path="${array_pro[4]}"
+slave_IPADDRESS="${array_ip[i]}"
+
+
+echo "ORGANIZATION=${array_pro[0]}"
+echo "APPLICATION=${array_pro[1]}"
+echo "Master_IPADDRESS=$5"
+echo "Master_USERID=${array_pro[5]}"
+echo "Master_PASSWORD=${array_pro[6]}"
+echo "Master_PORT=${array_pro[7]}"
+echo "versioning_db=${array_pro[2]}"
+echo "versioning_table=${array_pro[3]}"
+echo "jenkins_path=${array_pro[4]}"
+echo "slave_IPADDRESS=${array_ip[i]}"
+
 
 
 for filename in $jenkins_path/xfusion_data_node_20*.sql; do
 Array1=("${Array1[@]}" "$(basename "$filename")")
 done
 
-Array2=($(mysql -u$Master_USERID --port $Master_PORT  -p$Master_PASSWORD -c -h $Master_IPADDRESS -Bse "select trim(script_name) from $versioning_db.$versioning_table  where project_name='$ORGANIZATION' and model_name='$APPLICATION' order by script_date;"))
+Array2=($(mysql -u$Master_USERID --port $Master_PORT  -p$Master_PASSWORD -c -h $Master_IPADDRESS -Bse "select trim(git_script_name) from $versioning_db.$versioning_table  where project_name='$ORGANIZATION' and model_name='$APPLICATION' and master_ip='$Master_IPADDRESS' and slave_ip='slave_IPADDRESS' order by script_date;"))
 
 
 Array3=()
