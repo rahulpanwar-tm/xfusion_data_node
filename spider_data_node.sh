@@ -32,6 +32,7 @@ verisoning_table=(xfusion_performance_data_node_1.sql xfusion_performance_data_n
 echo "verisoning_table" ${verisoning_table[@]}
 # verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='$versioning_table' and TABLE_SCHEMA='$versioning_db'  ;"))
 for ((m=0;m<=${#verisoning_table[@]}-1;m++)); do
+  echo "${array_node[m]}"
 if in_array "${array_node[m]}" "${verisoning_table[*]}"
   then
     echo "Data Node" "${array_node[m]}" "allready installed!!"
