@@ -10,9 +10,7 @@ echo "$i" "${array_ip[i]}" "${array_user[i]}" "${array_Password[i]}" "${array_po
 done; echo ''
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
 then
-
-
-for filename in $jenkins_path/xfusion_performance_data_node_*.sql; do
+for filename in $jenkins_path/xfusion_data_node_20*.sql; do
 Array1=("${Array1[@]}" "$(basename "$filename")")
 done
 
