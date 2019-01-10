@@ -114,7 +114,7 @@ file_name="${array_node[m]}.sql"
 # . ./jenkins_1.sh "${array_pro[0]}" "${array_pro[1]}" "${array_ip[m]}" "${array_user[m]}" "${array_Password[m]}" "${array_port[m]}" "${array_pro[2]}" "${array_pro[3]}" "${array_pro[4]}"
 
 # drop all spider tables from mysql_spider
-mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "source $jenkins_path/$file_name;"
+# ----------- mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "source $jenkins_path/$file_name;"
 #mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "truncate mysql.spider_tables;"
 # create server for particulaer node
 #mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "delete from mysql.servers where server_name='${array_server[m]}';" 
