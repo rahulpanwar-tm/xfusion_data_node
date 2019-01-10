@@ -81,7 +81,7 @@ for ((m=0;m<=${#array_node[@]}-1;m++)); do
 verisoning_table=($(mysql -u$Master_USERID --port $Master_PORT  -p$Master_PASSWORD -c -h $Master_IPADDRESS -Bse "select trim(installation_script_name) from $versioning_db.$versioning_table  where project_name='$ORGANIZATION' and model_name='$APPLICATION' and master_ip='$Master_IPADDRESS' and slave_ip='$slave_IPADDRESS' order by script_date;"))
 echo "verisoning_table" ${verisoning_table[@]}  
 
-if in_array "${array_node[m]}" "${verisoning_table[*]}"
+if in_array "${array_node[m]}.sql" "${verisoning_table[*]}"
   then
     echo "Data Node" "${array_node[m]}" "allready installed!!"
   else
