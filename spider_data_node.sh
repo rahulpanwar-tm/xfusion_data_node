@@ -11,6 +11,14 @@ done; echo ''
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
 then
 
+
+for filename in $jenkins_path/xfusion_performance_data_node_*.sql; do
+Array1=("${Array1[@]}" "$(basename "$filename")")
+done
+
+echo "Array 1 " ${Array1[@]}
+
+
   
 #verisoning_table=($(mysql -u${array_user[i]} --port ${array_port[i]}  -p${array_Password[i]} -c -h $5 -BSe "show databases;"))
 function in_array {
