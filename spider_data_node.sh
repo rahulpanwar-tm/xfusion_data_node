@@ -7,6 +7,16 @@ array_ip=($1); array_user=($3); array_Password=($2); array_port=($4); array_node
 echo "ID" "SERVER_IP"  "USER_NAME"  "Password"  "Port" "Pro_Server" "Data_node_name" "Node_server"
 for ((i=0;i<=${#array_ip[@]}-1;i++)); do
 echo "$i" "${array_ip[i]}" "${array_user[i]}" "${array_Password[i]}" "${array_port[i]}" "$5" "${array_node[i]}" "${array_server[i]}" "${array_pro[0]}" "${array_pro[1]}" "${array_pro[2]}" "${array_pro[3]}" "${array_pro[4]}" ;
+ORGANIZATION="${array_pro[0]}"
+APPLICATION="${array_pro[1]}"
+Master_IPADDRESS="$5"
+Master_USERID="${array_pro[5]}"
+Master_PASSWORD="${array_pro[6]}"
+Master_PORT="${array_pro[7]}"
+versioning_db="${array_pro[2]}"
+versioning_table="${array_pro[3]}"
+jenkins_path="${array_pro[4]}"
+slave_IPADDRESS="${array_ip[i]}"
 done; echo ''
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
 then
@@ -24,16 +34,7 @@ function in_array {
   return 1
 }
 
-ORGANIZATION="${array_pro[0]}"
-APPLICATION="${array_pro[1]}"
-Master_IPADDRESS="$5"
-Master_USERID="${array_pro[5]}"
-Master_PASSWORD="${array_pro[6]}"
-Master_PORT="${array_pro[7]}"
-versioning_db="${array_pro[2]}"
-versioning_table="${array_pro[3]}"
-jenkins_path="${array_pro[4]}"
-slave_IPADDRESS="${array_ip[i]}"
+
 
 
 echo "ORGANIZATION=${array_pro[0]}"
