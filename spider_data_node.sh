@@ -72,11 +72,15 @@ echo "Array 2 " ${Array2[@]}
 echo "Array 3(diffrence) " ${Array3[@]}
 
 # verisoning_table=($(mysql -u${array_pro[5]} --port ${array_pro[7]}  -p${array_pro[6]} -c -h "$10" -Bse "select trim(script_name) from ${array_pro[3]}.${array_pro[4]}  where project_name=${array_pro[0]} and model_name=${array_pro[1} order by script_date;"))
-verisoning_table=(xfusion_performance_data_node_1 xfusion_performance_data_node_2 xfusion_performance_data_node_3)
-echo "verisoning_table" ${verisoning_table[@]}
+# verisoning_table=(xfusion_performance_data_node_1 xfusion_performance_data_node_2 xfusion_performance_data_node_3)
+# echo "verisoning_table" ${verisoning_table[@]}
 # verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='$versioning_table' and TABLE_SCHEMA='$versioning_db'  ;"))
 for ((m=0;m<=${#array_node[@]}-1;m++)); do
   echo "${array_node[m]}"
+
+verisoning_table=($(mysql -u$Master_USERID --port $Master_PORT  -p$Master_PASSWORD -c -h $Master_IPADDRESS -Bse "select trim(installation_script_name) from $versioning_db.$versioning_table  where project_name='$ORGANIZATION' and model_name='$APPLICATION' and master_ip='$Master_IPADDRESS' and slave_ip='$slave_IPADDRESS' order by script_date;"))
+echo "verisoning_table" ${verisoning_table[@]}  
+
 if in_array "${array_node[m]}" "${verisoning_table[*]}"
   then
     echo "Data Node" "${array_node[m]}" "allready installed!!"
