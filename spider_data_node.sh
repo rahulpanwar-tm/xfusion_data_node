@@ -24,6 +24,8 @@ function in_array {
   done
   return 1
 }
+
+
 # verisoning_table=($(mysql -u${array_pro[5]} --port ${array_pro[7]}  -p${array_pro[6]} -c -h "$10" -Bse "select trim(script_name) from ${array_pro[3]}.${array_pro[4]}  where project_name=${array_pro[0]} and model_name=${array_pro[1} order by script_date;"))
 
 verisoning_table=(xfusion_performance_data_node_1.sql xfusion_performance_data_node_2.sql xfusion_performance_data_node_3.sql)
@@ -48,9 +50,9 @@ echo "${array_pro[0]}" "${array_pro[1]}" "${array_ip[m]}" "${array_user[m]}" "${
 echo "Rahul Panwar"
 # . ./jenkins_1.sh "${array_pro[0]}" "${array_pro[1]}" "${array_ip[m]}" "${array_user[m]}" "${array_Password[m]}" "${array_port[m]}" "${array_pro[2]}" "${array_pro[3]}" "${array_pro[4]}"
 # drop all spider tables from mysql_spider
-mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "truncate mysql.spider_tables;" 
+#mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "truncate mysql.spider_tables;" 
 # create server for particulaer node
-mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "delete from mysql.servers where server_name='${array_server[m]}';" 
+#mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "delete from mysql.servers where server_name='${array_server[m]}';" 
 fi
 done; echo ''
 # for ((j=0;j<=${#array_ip[@]}-1;j++)); do
