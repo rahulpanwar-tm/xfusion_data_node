@@ -54,7 +54,7 @@ for filename in $jenkins_path/xfusion_data_node_20*.sql; do
 Array1=("${Array1[@]}" "$(basename "$filename")")
 done
 
-Array2=($(mysql -u$Master_USERID --port $Master_PORT  -p$Master_PASSWORD -c -h $Master_IPADDRESS -Bse "select trim(git_script_name) from $versioning_db.$versioning_table  where project_name='$ORGANIZATION' and model_name='$APPLICATION' and master_ip='$Master_IPADDRESS' and slave_ip='slave_IPADDRESS' order by script_date;"))
+Array2=($(mysql -u$Master_USERID --port $Master_PORT  -p$Master_PASSWORD -c -h $Master_IPADDRESS -Bse "select trim(git_script_name) from $versioning_db.$versioning_table  where project_name='$ORGANIZATION' and model_name='$APPLICATION' and master_ip='$Master_IPADDRESS' and slave_ip='$slave_IPADDRESS' order by script_date;"))
 
 
 Array3=()
