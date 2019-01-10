@@ -24,7 +24,9 @@ function in_array {
   done
   return 1
 }
-verisoning_table=(Thanks to Stephane)
+verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "select trim(script_name) from ${array_pro[2]}.${array_pro[2]}  where project_name='${array_pro[2]}' and model_name='${array_pro[2]}' order by script_date;"))
+echo "verisoning_table" ${verisoning_table[@]}
+# verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='$versioning_table' and TABLE_SCHEMA='$versioning_db'  ;"))
 for ((m=0;m<=${#verisoning_table[@]}-1;m++)); do
 if in_array "${array_node[m]}" "${verisoning_table[*]}"
   then
