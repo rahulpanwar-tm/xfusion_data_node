@@ -16,7 +16,7 @@ Master_PORT="${array_pro[7]}"
 versioning_db="${array_pro[2]}"
 versioning_table="${array_pro[3]}"
 jenkins_path="${array_pro[4]}"
-slave_IPADDRESS="${array_ip[i]}"
+slave_IPADDRESS="${array_ip[i+1]}"
 done; echo ''
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
 then
