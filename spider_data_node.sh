@@ -10,13 +10,6 @@ echo "$i" "${array_ip[i]}" "${array_user[i]}" "${array_Password[i]}" "${array_po
 done; echo ''
 if [ "${array_pro[1]}" == "xfusion_performance_data" ]
 then
-for filename in $jenkins_path/xfusion_data_node_20*.sql; do
-Array1=("${Array1[@]}" "$(basename "$filename")")
-done
-
-echo "Array 1 " ${Array1[@]}
-
-
   
 #verisoning_table=($(mysql -u${array_user[i]} --port ${array_port[i]}  -p${array_Password[i]} -c -h $5 -BSe "show databases;"))
 function in_array {
@@ -31,9 +24,39 @@ function in_array {
   return 1
 }
 
+ORGANIZATION="${array_pro[0]}"
+APPLICATION="${array_pro[1]}"
+Master_IPADDRESS="$5"
+Master_USERID="${array_pro[5]}"
+Master_PASSWORD="${array_pro[6]}"
+Master_PORT="${array_pro[7]}"
+versioning_db="${array_pro[2]}"
+versioning_table="${array_pro[3]}"
+jenkins_path="${array_pro[4]}"
+
+
+for filename in $jenkins_path/xfusion_data_node_20*.sql; do
+Array1=("${Array1[@]}" "$(basename "$filename")")
+done
+
+Array2=($(mysql -u$Master_USERID --port $Master_PORT  -p$Master_PASSWORD -c -h $Master_IPADDRESS -Bse "select trim(script_name) from $versioning_db.$versioning_table  where project_name='$ORGANIZATION' and model_name='$APPLICATION' order by script_date;"))
+
+
+Array3=()
+for i in "${Array1[@]}"; do
+    skip=
+    for j in "${Array2[@]}"; do
+        [[ $i == $j ]] && { skip=1; break; }
+    done
+    [[ -n $skip ]] || Array3+=("$i")
+done
+declare -a  Array3
+
+echo "Array 1 " ${Array1[@]}
+echo "Array 2 " ${Array2[@]}
+echo "Array 3(diffrence) " ${Array3[@]}
 
 # verisoning_table=($(mysql -u${array_pro[5]} --port ${array_pro[7]}  -p${array_pro[6]} -c -h "$10" -Bse "select trim(script_name) from ${array_pro[3]}.${array_pro[4]}  where project_name=${array_pro[0]} and model_name=${array_pro[1} order by script_date;"))
-
 verisoning_table=(xfusion_performance_data_node_1 xfusion_performance_data_node_2)
 echo "verisoning_table" ${verisoning_table[@]}
 # verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='$versioning_table' and TABLE_SCHEMA='$versioning_db'  ;"))
