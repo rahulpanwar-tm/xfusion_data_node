@@ -159,6 +159,7 @@ then
 
 fi
    mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "INSERT INTO $versioning_db.$versioning_table (project_name,model_name, script_name, installation_date, script_date) VALUES ('$ORGANIZATION','$APPLICATION','$i',UNIX_TIMESTAMP(NOW()),unix_timestamp(substring(substring('$i' FROM -14),1,10)));"
+   verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='$versioning_table' and TABLE_SCHEMA='$versioning_db'  ;"))
   # mysql -u$GLOB_USERID --port $GLOB_PORT  -p$GLOB_PASSWORD -c -h $GLOB_IPADDRESS -e "use versioning; call database_deployement_version_insert('$ORGANIZATION','$APPLICATION','$i');"
    # or do whatever with individual element of the array
 done
